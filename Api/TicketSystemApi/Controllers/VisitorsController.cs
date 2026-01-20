@@ -7,6 +7,7 @@ using System.Security.Claims;
 using System.Web.Http;
 using TicketSystemApi.Services;
 using TicketSystemApi.Models;
+using Microsoft.Xrm.Sdk.Deployment;
 
 namespace TicketSystemApi.Controllers
 {
@@ -212,7 +213,7 @@ namespace TicketSystemApi.Controllers
                             : null,
                         ModifiedOn = ConvertToKsaTime(v.GetAttributeValue<DateTime?>("modifiedon")),
                         CreatedOn = ConvertToKsaTime(v.GetAttributeValue<DateTime>("createdon")),
-                        SurveyCreatedOn = surveyCreatedOn,
+                        SurveyRespondedOn = surveyCreatedOn,
                         ServiceSatisfaction = serviceSatisfaction,
                         StaffEfficiency = staffEfficiency,
                        // VisitReasonValues = visitReasonValues,
