@@ -132,7 +132,7 @@ namespace TicketSystemApi.Controllers
                         ModifiedBy = e.GetAttributeValue<EntityReference>("modifiedby")?.Name,
                         Priority = e.FormattedValues.Contains("prioritycode") ? e.FormattedValues["prioritycode"] : null,
                         ResolutionDateTime = GetResolutionDateTime(e)?.ToString("yyyy-MM-dd HH:mm:ss"),
-                        SurveyCreatedOn = csat.surveyCreatedOn,
+                        SurveyRespondedOn = csat.surveyCreatedOn,
                         Customer_Satisfaction_Score = csat.Comment,
                         How_Satisfied_Are_You_With_How_The_Ticket_Was_Handled = csat.Score,
                         Was_the_Time_Taken_to_process_the_ticket_Appropriate = csat.AppropriateTimeTaken,
@@ -249,7 +249,7 @@ namespace TicketSystemApi.Controllers
         }
         private string CalculateDurationFormatted(Entity incident)
         {
-            // Convert CreatedOn to KSA
+            // Convert CreatedOn to CreatedOnDate
             DateTime? createdOn = ConvertToKsaTime(incident.GetAttributeValue<DateTime?>("createdon"));
             DateTime? resolvedOn = GetResolutionDateTime(incident);
 
